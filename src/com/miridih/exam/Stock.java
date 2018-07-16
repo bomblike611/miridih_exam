@@ -21,18 +21,19 @@ public class Stock implements Solver {
 		int t=0;
 		int n=0;
 		int [] testPrice=null;
-		String [] tab=null;
 
 		////////////////////수 입력받기
 		Scanner sc=new Scanner(in);
 		t=sc.nextInt();
 		results=new int[t];
+		
+		
 		//첫번째 t만큼 반복
 		for(int i=0;i<t;i++) {
-			String ns=sc.nextLine();
-			n=Integer.parseInt(ns.trim());
+			n= sc.nextInt();
 			testPrice=new int[n+1];
-			tab=new String[n];
+			int max=0;
+			int result=0;
 			//두번째 n만큼 반복
 			for(int j=0;j<n;j++) {
 				if(j==(n-1)) {
@@ -42,8 +43,17 @@ public class Stock implements Solver {
 					tab[j]=sc.next();
 					testPrice[j]=Integer.parseInt(tab[j]);
 				}
+				System.out.println(testPrice[j]);
 			}
-			int result=bigCount(testPrice);
+			
+			for(int d=n-1;d<-1;i--) {
+				System.out.println("dd");
+				if(testPrice[d]>max) {
+					max=testPrice[d];
+				}else {
+					result+=(max-testPrice[d]);
+				}
+			}
 			results[i]=result;
 		}
 
@@ -52,7 +62,7 @@ public class Stock implements Solver {
 		}
 	}
 
-	/*************주가 합산 메서드****************/
+	/*************주가 합산 메서드****************//*
 	public int bigCount(int [] testPrice){
 		//최대 최대판매결과 변수
 		int maxSum=0;
@@ -72,5 +82,5 @@ public class Stock implements Solver {
 				}
 			}
 			return maxSum;
-	}
+	}*/
 }
