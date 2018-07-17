@@ -26,23 +26,23 @@ public class Stock implements Solver {
 		Scanner sc=new Scanner(in);
 		t=sc.nextInt();
 		results=new int[t];
-		
-		
+
+
 		//첫번째 t만큼 반복
 		for(int i=0;i<t;i++) {
-			
+
 			n= sc.nextInt();
 			testPrice=new int[n+1];
 			//최대 가격 변수
 			int max=0;
 			//계산 결과 변수
 			int result=0;
-			
+
 			//두번째 n만큼 반복
 			for(int j=0;j<n;j++) {
 				testPrice[j]=sc.nextInt();
 			}
-			
+
 			for(int d=n-1;d>-1;d--) {
 				if(testPrice[d] > max) {
 					max=testPrice[d];
@@ -56,6 +56,8 @@ public class Stock implements Solver {
 		for(int i=0;i<results.length;i++) {
 			out.println(results[i]);
 		}
+
+		sc.close();
 	}
 
 }
