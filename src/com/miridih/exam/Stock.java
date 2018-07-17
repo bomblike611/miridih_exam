@@ -22,7 +22,7 @@ public class Stock implements Solver {
 		int n=0;
 		int [] testPrice=null;
 
-		////////////////////수 입력받기
+		////////////////////수 입력받기////////////////
 		Scanner sc=new Scanner(in);
 		t=sc.nextInt();
 		results=new int[t];
@@ -30,25 +30,21 @@ public class Stock implements Solver {
 		
 		//첫번째 t만큼 반복
 		for(int i=0;i<t;i++) {
+			
 			n= sc.nextInt();
 			testPrice=new int[n+1];
+			//최대 가격 변수
 			int max=0;
+			//계산 결과 변수
 			int result=0;
+			
 			//두번째 n만큼 반복
 			for(int j=0;j<n;j++) {
-				if(j==(n-1)) {
-					tab[j]=sc.nextLine();
-					testPrice[j]=Integer.parseInt(tab[j].trim());
-				}else {
-					tab[j]=sc.next();
-					testPrice[j]=Integer.parseInt(tab[j]);
-				}
-				System.out.println(testPrice[j]);
+				testPrice[j]=sc.nextInt();
 			}
 			
-			for(int d=n-1;d<-1;i--) {
-				System.out.println("dd");
-				if(testPrice[d]>max) {
+			for(int d=n-1;d>-1;d--) {
+				if(testPrice[d] > max) {
 					max=testPrice[d];
 				}else {
 					result+=(max-testPrice[d]);
@@ -58,29 +54,8 @@ public class Stock implements Solver {
 		}
 
 		for(int i=0;i<results.length;i++) {
-			System.out.println(results[i]);
+			out.println(results[i]);
 		}
 	}
 
-	/*************주가 합산 메서드****************//*
-	public int bigCount(int [] testPrice){
-		//최대 최대판매결과 변수
-		int maxSum=0;
-		//주가 판매결과 변수
-		int sum=0;
-		//주가 최저가격 변수
-		int minPrice=testPrice[0];
-
-		
-			for(int i=0;i<testPrice.length;i++) {
-				sum=testPrice[i]-minPrice;
-				if(sum>maxSum) {
-					maxSum=sum;
-				}
-				if(testPrice[i]<minPrice) {
-					minPrice=testPrice[i];
-				}
-			}
-			return maxSum;
-	}*/
 }
